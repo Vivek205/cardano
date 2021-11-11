@@ -65,10 +65,6 @@ library
       plutus-tx-plugin,
       plutus-tx,
       plutus-ledger,
-      serialise,
-      cardano-api,
-      plutus-ledger-api,
-      text
     hs-source-dirs: src examples/src
 
 test-suite plutus-example-projects-test
@@ -111,39 +107,6 @@ executable plutus-starter-pab
     freer-simple -any,
     prettyprinter -any,
     freer-extras -any,
-    plutus-ledger -any
-
-executable compile-into-plutus
-  import: lang
-  main-is: WritePlutus.hs
-  hs-source-dirs: pab
-  ghc-options:
-    -threaded
-  build-depends:
-    base >= 4.9 && <5,
-    data-default -any,
-    plutus-contract -any,
-    plutus-pab -any, 
-    plutus-starter -any, 
-    aeson -any, 
-    freer-simple -any, 
-    prettyprinter -any,
-    freer-extras -any, 
     plutus-ledger -any,
-    cardano-api -any,
-    cardano-ledger-alonzo -any, 
-    plutus-ledger-api -any,
-    serialise -any
+    openapi3 -any,
 
-
-executable create-private-minting-policy
-  import: lang
-  main-is: CreatePrivateMintingPolicyScript.hs
-  hs-source-dirs: pab
-  ghc-options:
-    -threaded
-  build-depends:
-    base >= 4.9 && <5,
-    cardano-api,
-    plutus-starter,
-    plutus-ledger
